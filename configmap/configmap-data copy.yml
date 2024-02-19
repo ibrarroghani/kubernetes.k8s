@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: configmap
+metadata:
+  name: web-config
+data:
+   APP_COLOR: darkblue
+  

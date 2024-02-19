@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: canary-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: canary-env
+      enviroment: canary
+  template:
+    metadata:
+      labels:
+        app: canary-env
+        enviroment: canary
+    spec:
+      containers:
+      - name: bluegreen
+        image: linuxacademycontent/ckad-nginx:canary
+        ports:
+        - containerPort: 80

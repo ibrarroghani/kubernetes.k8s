@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: web-app
+    tier: production
+  name: my-dev-app
+  namespace: default
+spec:
+  containers:
+  - name: dev-app 
+    image: kodekloud/webapp-delayed-start
+    ports:
+    - containerPort: 8080
+      protocol: TCP
+    livenessProbe:
+      httpGet:
+        path: /live
+        port: 8080  

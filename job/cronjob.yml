@@ -1,0 +1,20 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: hello
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      backoffLimit: 5
+      activeDeadlineSeconds: 30
+      template:
+        spec:
+          containers:
+          - name: cronjob-test
+            image: busybox:stable
+            imagePullPolicy: IfNotPresent
+            command:
+            - "echo"
+            - this the test of cron job
+          restartPolicy: Never

@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wear-web
+  namespace: web-space
+  labels:
+    app: nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wear-web
+  template:
+    metadata:
+      labels:
+        app: wear-web
+    spec:
+      containers:
+      - name: wear-web-cont
+        image: kodekloud/ecommerce:apparels
+        ports:
+        - containerPort: 8080
+          protocol: TCP

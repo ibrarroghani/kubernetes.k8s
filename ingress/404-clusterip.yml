@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: default-service
+  namespace: web-space
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: default-web
+  type: ClusterIP

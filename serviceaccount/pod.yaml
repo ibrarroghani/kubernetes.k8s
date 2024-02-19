@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: dashboard-po
+  labels:
+    app: dashboard
+spec:
+  containers:
+  - image: gcr.io/kodekloud/customimage/my-kubernetes-dashboard
+    name: dashboard
+    ports:
+    - containerPort: 8080
+      protocol: TCP
+    env:
+    - name: PYTHONNUNBUFFERED
+      value: "1"

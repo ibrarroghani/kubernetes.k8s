@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: singlepod
+  labels:
+    app: frontend
+    version: development
+spec:
+  containers:
+  - name: alpha
+    image: nginx
+    

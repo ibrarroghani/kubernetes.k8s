@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: configmap
+metadata:
+  name: my-config
+data:
+  NAME: ibrar
+  ORG: alnafi
+  COURSE: CKAD

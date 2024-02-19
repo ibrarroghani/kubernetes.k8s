@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: food-web
+  namespace: web-space
+  labels:
+    app: nginx-controller-food
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: food-web
+  template:
+    metadata:
+      labels:
+        app: food-web
+    spec:
+      containers:
+      - name: food-web-cont
+        image: kodekloud/ecommerce:food
+        ports:
+        - containerPort: 8080
+          protocol: TCP

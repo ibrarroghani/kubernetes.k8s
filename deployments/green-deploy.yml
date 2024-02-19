@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: g-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bg-env
+      color: green
+  template:
+    metadata:
+      labels:
+        app: bg-env
+        color: green
+    spec:
+      containers:
+      - name: bluegreen
+        image: linuxacademycontent/ckad-nginx:green
+        ports:
+        - containerPort: 80
+

@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: default-web
+  namespace: web-space
+  labels:
+    app: nginx-controller-default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: default-web
+  template:
+    metadata:
+      labels:
+        app: default-web
+    spec:
+      containers:
+      - name: default-web-cont
+        image: kodekloud/ecommerce:404
+        ports:
+        - containerPort: 8080
+          protocol: TCP

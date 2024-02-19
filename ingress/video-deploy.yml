@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: video-web
+  namespace: web-space
+  labels:
+    app: nginx-controller
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: video-web
+  template:
+    metadata:
+      labels:
+        app: video-web
+    spec:
+      containers:
+      - name: video-web-cont
+        image: kodekloud/ecommerce:video
+        ports:
+        - containerPort: 8080
+          protocol: TCP

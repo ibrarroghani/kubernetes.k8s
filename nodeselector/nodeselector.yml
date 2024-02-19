@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nodeselector-po
+spec:
+  containers:
+  - name: mycontainer
+    image: nginx
